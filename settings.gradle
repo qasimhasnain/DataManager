@@ -1,0 +1,3 @@
+include ':DataManager'
+include ':app'
+rootProject.name = "TestApplication"
