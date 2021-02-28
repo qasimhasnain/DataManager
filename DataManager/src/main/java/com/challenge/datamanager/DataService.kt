@@ -7,7 +7,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-public class DataService {
+ class DataService {
 
     fun getMediaService() : MediaApi{
 
@@ -24,8 +24,6 @@ public class DataService {
             .client(client)
             .build()
 
-        val mediaApi : MediaApi = builder.create(MediaApi::class.java)
-
-        return mediaApi
+        return builder.create(MediaApi::class.java)
     }
 }

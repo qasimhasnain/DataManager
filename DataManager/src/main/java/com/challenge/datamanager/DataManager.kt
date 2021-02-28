@@ -2,7 +2,6 @@ package com.challenge.datamanager
 
 import android.content.Context
 import android.os.Build
-import android.util.Log
 import com.challenge.datamanager.API.MediaApi
 import com.challenge.datamanager.Database.DatabaseHelper
 import com.challenge.datamanager.Exceptions.NoInternet
@@ -67,7 +66,6 @@ import retrofit2.Response
                              call: Call<MultiSearchResponse>,
                              response: Response<MultiSearchResponse>
                      ) {
-                         Log.e("HomeScreen","onResponse::  "+response.isSuccessful)
                          val code : Int = response.code()
                          when(response.isSuccessful){
                              true ->{ response?.body()?.let { it_outer ->
@@ -86,7 +84,6 @@ import retrofit2.Response
                                          allItems = ArrayList()
                                      allItems.addAll(mediaItems)
                                  }
-
                                  getSections(mediaItems)
                                  sections.sortBy { it.toString() }
 
@@ -120,7 +117,6 @@ import retrofit2.Response
                                  call: Call<MultiSearchResponse>,
                                  response: Response<MultiSearchResponse>
                          ) {
-                             Log.e("DataManager","onResponse::  "+response.isSuccessful)
                              val code : Int = response.code()
                              when(response.isSuccessful){
                                  true ->{ response?.body()?.let { it_outer ->
@@ -128,9 +124,7 @@ import retrofit2.Response
                                      totalItems = it_outer.total_results
                                      totalPages = it_outer.total_pages
                                      mediaItems = it_outer.results as ArrayList<MediaItem>
-
                                      allItems.addAll(mediaItems)
-
                                      updateSections(mediaItems)
                                      onResponse.onSuccess(getAllDataList(sections))
                                  }}
@@ -146,7 +140,6 @@ import retrofit2.Response
              }else{
                  throw NoInternet()
              }
-//         }
      }
 
 
@@ -170,7 +163,6 @@ import retrofit2.Response
                  updated = true
              }
          }
-
          sections.sortBy { it.toString() }
          return updated
      }

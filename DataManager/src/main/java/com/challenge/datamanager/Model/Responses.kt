@@ -17,7 +17,6 @@ data class MediaItem(
     @SerializedName("poster_path") val poster_path : String,
     @SerializedName("popularity") val popularity : Double,
     @SerializedName("genre_ids") val genre_ids : List<Int>,
-//    @SerializedName("genre_ids") val genre_ids : String,
     @SerializedName("backdrop_path") val backdrop_path : String,
     @SerializedName("original_language") val original_language : String,
     @SerializedName("overview") val overview : String,
@@ -31,11 +30,9 @@ data class MediaItem(
 
     @SerializedName("first_air_date") val first_air_date : String? = "",
     @SerializedName("origin_country") val origin_country : List<String>? = null,
-//    @SerializedName("origin_country") val origin_country : String? = null,
     @SerializedName("name") val name : String? = "",
     @SerializedName("original_name") val original_name : String? = "",
 
     @SerializedName("profile_path") val profile_path : String? = "",
     @SerializedName("known_for") val known_for : List<MediaItem>? = null
-//    @SerializedName("known_for") val known_for : String? = null
 )
